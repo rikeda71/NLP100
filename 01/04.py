@@ -4,9 +4,9 @@ doc = 'Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Al
 # 辞書型
 dict = {}
 # 不要文字を削除
-doc = re.sub('[.,]','',doc)
+doc = re.sub(r'[.,]','',doc)
 # 単語分解
-word = re.split('[\s]',doc)
+word = re.split(r'[\s]',doc)
 for i in range(len(word)) :
     # 参照位置の指定
     if i+1 in {1,5,6,7,8,9,15,16,19} :

@@ -4,7 +4,7 @@ doc = 'Now I need a drink, alcoholic of course, after the heavy lectures involvi
 # リスト
 list = []
 #不要文字を削除
-doc = re.sub('[,.]','',doc)
+doc = re.sub(r'[,.]','',doc)
 # 文章から単語ごとに
 word = re.split(r'[\s]+',doc)
 for i in range(len(word)):
