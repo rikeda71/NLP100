@@ -29,3 +29,8 @@ jsonData = res.read()
 # jsonファイルを辞書型に格納し、urlの情報だけを出力
 dic = json.loads(jsonData)
 print(dic['query']['pages']['-1']['imageinfo'][0]['url'])
+
+"""
+$ python 29.py
+https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg
+"""
