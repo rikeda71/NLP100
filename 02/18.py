@@ -1,4 +1,4 @@
-#config:utf-8
+#coding:utf-8
 
 # 3行目を取得
 col = [line.split('\t')[2] for line in open('hightemp.txt','r')]

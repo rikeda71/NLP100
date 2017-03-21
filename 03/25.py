@@ -1,4 +1,4 @@
-#config:utf-8
+#coding:utf-8
 
 # 辞書型の定義
 dic = {}

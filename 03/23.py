@@ -1,4 +1,4 @@
-#config:utf-8
+#coding:utf-8
 import re
 
 # 正規表現 '=='で挟まれている文字列を想定

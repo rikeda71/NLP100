@@ -1,3 +1,4 @@
+#coding:utf-8
 import random
 
 # 4文字以上の文字列の順番をランダムにする

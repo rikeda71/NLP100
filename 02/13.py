@@ -1,4 +1,4 @@
-#config:utf-8
+#coding:utf-8
 
 # 文字列を格納するリストを用意
 str1 = []

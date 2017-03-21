@@ -1,3 +1,5 @@
+#coding:utf-8
+
 def return_str(x,y,z):
     doc = str(x) + "時の" + str(y) + "は" + str(z)
     return doc

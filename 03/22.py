@@ -1,4 +1,4 @@
-#config:utf-8
+#coding:utf-8
 import re
 
 with open('United_Kingdom.txt','r') as f:

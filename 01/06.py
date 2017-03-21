@@ -1,3 +1,4 @@
+#coding:utf-8
 import re
 
 # 与えられた文字列リストからn-gramを返す

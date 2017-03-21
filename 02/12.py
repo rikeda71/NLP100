@@ -1,4 +1,4 @@
-#config:utf-8
+#coding:utf-8
 
 str1 = '' # col1.txtのテキスト
 str2 = '' # col2.txtのテキスト

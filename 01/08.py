@@ -1,3 +1,5 @@
+#coding:utf-8
+
 def cipher(doc):
     new_doc = ""
     for i in range(len(doc)):

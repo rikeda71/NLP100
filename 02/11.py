@@ -1,4 +1,4 @@
-#config:utf-8
+#coding:utf-8
 
 f = open('hightemp.txt','r')
 str = '' 
