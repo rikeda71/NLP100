@@ -2,9 +2,11 @@ NLP100
 ======
 [言語処理100本ノック](http://www.cl.ecei.tohoku.ac.jp/nlp100/)をPythonで解きます
 
-Mecabのインストール(chap4)
+MeCabの設定(chap4)
 --------------------------
-    $ sudo apt-get install libmecab2 libmecab-dev mecab mecab-ipadic mecab-ipadic-utf8 mecab-utils python-mecab
+#### MeCabのインストール
+
+    $ sudo apt-get install libmecab2 libmecab-dev mecab mecab-ipadic mecab-ipadic-utf8 mecab-utils python-mecab
     $ pip install mecab-python3
 
 CaboChaの設定(chap5)
@@ -12,6 +14,7 @@ CaboChaの設定(chap5)
 #### CRF++のインストール
 
 「CRF++-0.58.tar.gz」を[こちら](https://drive.google.com/drive/u/0/folders/0B4y35FiV1wh7fngteFhHQUN2Y1B5eUJBNHZUemJYQV9VWlBUb3JlX0xBdWVZTWtSbVBneU0)からDL
+    
     # 解凍
     $ tar zxvf CRF++-0.58.tar.gz
     $ cd CRF++-0.58
