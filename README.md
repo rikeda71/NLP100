@@ -6,7 +6,7 @@ MeCabの設定(chap4)
 --------------------------
 #### MeCabのインストール
 
-    $ sudo apt-get install libmecab2 libmecab-dev mecab mecab-ipadic mecab-ipadic-utf8 mecab-utils python-mecab
+    $ sudo apt-get install libmecab2 libmecab-dev mecab mecab-ipadic mecab-ipadic-utf8 mecab-utils python-mecab
     $ pip install mecab-python3
 
 CaboChaの設定(chap5)
