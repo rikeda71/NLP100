@@ -9,6 +9,19 @@ MeCabの設定(chap4)
     $ sudo apt-get install libmecab2 libmecab-dev mecab mecab-ipadic mecab-ipadic-utf8 mecab-utils python-mecab
     $ pip install mecab-python3
 
+matplotlibの設定(chap4)
+---------------------------
+#### matplotlibのインストール
+
+    $ sudo apt-get install python3-matplotlib python3-gi-cairo python3-tk 
+    $ pip install matplotlib
+
+#### python3-cairocffiのインストール
+
+[こちら](https://launchpad.net/ubuntu/xenial/amd64/python3-cairocffi/0.7.2-1)から「python3-cairocffi_0.7.2-1_all.deb」をDLしてインストールする(Ubuntu16.04の場合)
+
+__tkinter(pythonのGUI操作に必要なもの)がない場合は、pyenv上のpythonを使用している場合は、tkinterを導入したいバージョンをを1回アンインストールしてtkinterをインストールする必要がある__ [(参考)](http://dragstar.hatenablog.com/entry/2016/09/23/110714)
+
 CaboChaの設定(chap5)
 ----------------------------
 #### CRF++のインストール
@@ -46,6 +59,8 @@ CaboChaの設定(chap5)
 
 進捗
 ----
+〇2017/03/22 chapter4終了
+
 〇2017/03/20 chapter3終了
 
 〇2017/03/18 chapter2終了
