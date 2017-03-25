@@ -24,7 +24,8 @@ def read_chunks(filename='') -> list:
                 if len(chunks) > 0:
                     # 係り受け元の格納
                     for i in range( len(chunks) ):
-                        chunks[chunks[i].dst].srcs.append(i)
+                        if chunks[i].dst > -1:
+                            chunks[chunks[i].dst].srcs.append(i)
                     # 1文を格納
                     chunks_list.append(chunks)
                 # リセット
@@ -40,7 +41,13 @@ def read_chunks(filename='') -> list:
 
 if __name__ == '__main__':
     sentences = read_chunks('neko.txt.cabocha')
-    
+    print_line = ''
     for i in range(len(sentences[7])):
-        print(str(i)+':'+str(sentences[7][i]))
-    
+        print_line += sentences[7][i].paragraphs_str()
+        for j in sentences[7][i].srcs:
+            if j > -1:
+                print_line += '\t'+sentences[7][j].paragraphs_str()
+        print_line += '\n'
+    print_line = re.sub(r'[!-~]','',print_line) # 半角記号削除
+    print_line = re.sub(r'[︰-＠、。]','',print_line) # 全角記号削除
+    print(print_line)
