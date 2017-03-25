@@ -1,21 +1,5 @@
 #coding:utf-8
-
-class Morph:
-    surface = '' # 表層系
-    base = '' # 基本形
-    pos = '' # 品詞
-    pos1 = '' # 品詞細分類1
-
-    # コンストラクタ
-    def __init__(self, surface, base, pos, pos1):
-        self.surface = surface
-        self.base = base
-        self.pos = pos
-        self.pos1 = pos1
-
-    # 表示メソッド
-    def show(self):
-        print('表層系:%s 基本形:%s 品詞: %s 品詞細分類: %s'%(self.surface, self.base, self.pos, self.pos1))
+from morph import Morph
 
 def main():
     # 結果の格納用
@@ -40,7 +24,6 @@ def main():
                 morph = Morph(line[0:line.find('\t')], speech[6], speech[0], speech[1])
                 morph_list[i-1].append(morph)
     
-    print(len(morph_list))
     # 3行目を出力
     for i in range(len(morph_list[2])):
         morph_list[2][i].show()
