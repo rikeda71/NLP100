@@ -40,6 +40,7 @@ def main():
                 morph = Morph(line[0:line.find('\t')], speech[6], speech[0], speech[1])
                 morph_list[i-1].append(morph)
     
+    print(len(morph_list))
     # 3行目を出力
     for i in range(len(morph_list[2])):
         morph_list[2][i].show()
