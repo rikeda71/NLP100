@@ -24,3 +24,13 @@ class Chunk:
         for i in range(len(self.morphs)):
             paragraphs = paragraphs + self.morphs[i].surface
         return paragraphs
+    
+    # 与えられた品詞が含まれているか返す
+    def bool_in_speech(self,speech='') -> str:
+        for i in range(len(self.morphs)):
+        # 含まれているなら
+            if self.morphs[i].pos in speech:
+                return True
+        # 含まれていないなら
+        return False
+

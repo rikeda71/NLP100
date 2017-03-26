@@ -20,7 +20,7 @@ matplotlibの設定(chap4)
 
 [こちら](https://launchpad.net/ubuntu/xenial/amd64/python3-cairocffi/0.7.2-1)から「python3-cairocffi_0.7.2-1_all.deb」をDLしてインストールする(Ubuntu16.04の場合)
 
-__Tkinter(pythonのGUI操作に必要なもの)を導入しておらず、pyenv上のpythonを使用している場合、Tkinterを導入したいバージョンを1度アンインストールしてからTkinterをインストールする必要がある__ [(参考)](http://dragstar.hatenablog.com/entry/2016/09/23/110714)
+__Tkinter(pythonのGUI操作に必要なもの)を導入しておらず、pyenv上のpythonを使用している場合、Tkinterを導入したいバージョンを1度アンインストールしてからTkinterをインストールする必要がある__ ([参考](http://dragstar.hatenablog.com/entry/2016/09/23/110714))
 
 CaboChaの設定(chap5)
 ----------------------------
@@ -56,6 +56,16 @@ CaboChaの設定(chap5)
     $ cd python
     $ python setup.py install
 
+有効グラフ可視化の導入(chap5)
+------------
+#### pydotのインストール
+
+    # python3の場合
+    pip install pydot_ng
+
+#### graphvizのインストール
+
+    sudo apt-get install graphviz
 
 進捗
 ----
