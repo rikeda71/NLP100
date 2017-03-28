@@ -26,11 +26,28 @@ class Chunk:
         return paragraphs
     
     # 与えられた品詞が含まれているか返す
-    def bool_in_speech(self,speech='') -> str:
+    def bool_in_speech(self,speech='') -> bool:
         for i in range(len(self.morphs)):
         # 含まれているなら
             if self.morphs[i].pos in speech:
                 return True
         # 含まれていないなら
+        return False
+
+    # 与えられた品詞細分類1が含まれているか返す
+    def bool_in_speech_detaile(self,speech='') -> bool:
+        for i in range(len(self.morphs)):
+            # 含まれているなら
+            if self.morphs[i].pos1 in speech:
+                return True
+            # 含まれていないなら
+            return False
+
+    # 与えられた文字列が含まれているか返す
+    def morph_in_str(self,line='') -> bool:
+        for i in range(len(self.morphs)):
+            # 含まれているなら
+            if self.morphs[i].surface_search(line):
+                return True
         return False
 
