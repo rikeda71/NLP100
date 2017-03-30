@@ -51,3 +51,20 @@ class Chunk:
                 return True
         return False
 
+    # 文節中で与えられた品詞の部分を最初だけマスクして出力
+    # stopはmaskをした時点で止めるかどうか
+    def paragraphs_mask_str(self, mask='', speech='', stop=False) -> str:
+        # 品詞が指定されていなかったらそのまま出力
+        if speech == '':
+            return paragrahs_str()
+        paragraphs = ''
+        mask_flag = False
+        for i in range(len(self.morphs)):
+            if self.morphs[i].pos and not mask_flag:
+                paragraphs += mask
+                if stop:
+                    return paragraphs
+                mask_flag = True
+            else:
+                paragraphs += self.morphs[i].surface
+        return paragraphs

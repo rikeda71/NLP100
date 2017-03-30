@@ -2,57 +2,83 @@
 import re
 import readfile
 
-def one_n_to_n(chunk,i,noun) -> str:
-    for j in range(i,len(chunk)):
-        line += noun
-        if chunk[i].dst == j+1
-            line += '->'
-        else:
-            line += '|'
-        for k in range(j+1,len(chunk[j])):
-            line += chunk[j].morphs[k]
-
-
-#名詞間への係り受けパスを出力するメソッド
-def out_n_to_n(chunk) -> str:
-    noun = ''
-    lines = []
-    for j in range(len(chunk)):
-        # 名詞がないなら無視する
-        # 一番端でも無視する
-        if not chunk[j].bool_in_speech('名詞')\
-                or j+1 == len(chunk):
-            continue
-        # X の名詞文字列を作成
-        for k in range(len(chunk[j].morphs)):
-            if chunk[j].morphs[k].pos in '名詞':
-                noun += noun + 'X'
+"""
+名詞句が何重にも分岐している場合はきちんと出力できない場合がある
+"""
+# 名詞句ペアの係り受けパスを出力
+def one_n_to_n(chunk, x, y) -> str:
+    line = ''
+    # 2つの名詞句の地点まで構文木を追っていく
+    for i in range(x,y+1):
+        # 参照文節に名詞句が含まれるなら
+        if chunk[i].bool_in_speech('名詞'):
+            if i == x:
+                line += chunk[i].paragraphs_mask_str('X','名詞')
+            # 名詞句ペアが構文木上にあったので探索終了
+            elif i == y:
+                line += chunk[i].paragraphs_mask_str('Y','名詞',True)
+                return line
             else:
-                noun += chunk[j].morphs[k].surface
-        # Y以降の文字列を作成
-        lines.append(one_n_to_n(chunk,j+1,noun))
-        # ペアを探す
-        for j in range(i,len(chunk)):
-            line = noun
-            noun_flag = False
-            # 1つの組み合わせを作る
-            for k in range(len(chunk[j].morphs)):
-                if chunk[j].morphs[k].pos in '名詞' and not noun_flag:
-                    noun_flag = True
-                    line += 'Y'
-                else:
-                    line += chunk[j].morphs[k].surface
-            # 構文木の経路上かどうか
-            if chunk[j].dst == j+1:
+                line += chunk[i].paragraphs_str()
+        # 含まれないならマスク(X,Yへの置換)を考慮しない
+        else:
+            line += chunk[i].paragraphs_str()
+
+        # 次の文節に今の文節がなら
+        if chunk[i].dst == i+1:
+            line += '->'
+        # そうじゃないなら
+        else:
+            # xの目指すべきところを保持
+            x_dst = chunk[i].dst
+            # 分岐して参照する名詞句までワープ
+            line += '|'
+            line += chunk[y].paragraphs_mask_str('Y','名詞')
+            if chunk[y].dst == x_dst:
+                line += '|' + chunk[x_dst].paragraphs_str()
+                return line
+            elif chunk[y].dst == y+1:
                 line += '->'
             else:
                 line += '|'
-                """
-                まだ、ｘで初めてｙとｘで初めて人間というｙについての対応ができていない
-                違いは、｜がない場合に、XとYが揃えばそく終了というところ？？
-                どう区別するかが難しいorz
-                """
-            lines.append(line)
+            break
+
+    # それ以外なら交わるまで続く
+    for i in range(y+1,len(chunk)):
+        line += chunk[i].paragraphs_str()
+        # 終了
+        if i == x_dst:
+            return line + chunk[i].paragraphs_str()
+        # 次に指す位置でxと合流するなら終了
+        elif chunk[i].dst == x_dst:
+            line += '|' + chunk[x_dst].paragraphs_str()
+            return line
+        # それ以外なら
+        # 次の文節に今の文節が係るなら
+        elif chunk[i].dst == i+1:
+            line += '->'
+        # 違うなら分岐
+        else:
+            line += '|'
+    return ''
+
+#すべての名詞ペアの係り受けパスを出力するメソッド
+def out_n_to_n(chunk) -> str:
+    noun = ''
+    lines = [] # 文字列
+    noun_list = [] # 名詞の存在する位置の保存
+    for i in range(len(chunk)):
+        if chunk[i].bool_in_speech('名詞'):
+            noun_list.append(i)
+    # 名詞句が2つ未満なら終了
+    if len(noun_list) <= 1:
+        return ''
+    # 名詞句のすべての組み合わせのループ
+    for i in range(len(noun_list)):
+        for j in range(i+1,len(noun_list)):
+            lines.append(one_n_to_n(chunk, noun_list[i], noun_list[j]))
+    while lines.count('') > 0:
+        lines.remove('')
     return '\n'.join(lines)
 
 if __name__ == '__main__':
@@ -60,7 +86,7 @@ if __name__ == '__main__':
     out_line = ''
     dis = [] # 助詞の位置
     for i in range(len(sentences)):
-                out_line += out_n_to_n(sentences[i],j) 
+        out_line += out_n_to_n(sentences[i]) + '\n'
 
     with open('out49.txt','w') as f:
         f.write(out_line)
