@@ -69,6 +69,8 @@ CaboChaの設定(chap5)
 
 進捗
 ----
+〇2017/03/31 chapter5終了
+
 〇2017/03/22 chapter4終了
 
 〇2017/03/20 chapter3終了

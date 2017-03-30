@@ -2,9 +2,6 @@
 import re
 import readfile
 
-"""
-名詞句が何重にも分岐している場合はきちんと出力できない場合がある
-"""
 # 名詞句ペアの係り受けパスを出力
 def one_n_to_n(chunk, x, y) -> str:
     line = ''
@@ -60,11 +57,14 @@ def one_n_to_n(chunk, x, y) -> str:
         # 違うなら分岐
         else:
             line += '|'
+    """
+    共通の地点で交わらない場合は無視
+    ex.)yがゴールでその経路途中を飛ばしてしまうときなど
+    """
     return ''
 
 #すべての名詞ペアの係り受けパスを出力するメソッド
 def out_n_to_n(chunk) -> str:
-    noun = ''
     lines = [] # 文字列
     noun_list = [] # 名詞の存在する位置の保存
     for i in range(len(chunk)):
@@ -77,6 +77,7 @@ def out_n_to_n(chunk) -> str:
     for i in range(len(noun_list)):
         for j in range(i+1,len(noun_list)):
             lines.append(one_n_to_n(chunk, noun_list[i], noun_list[j]))
+    # 空行を削除
     while lines.count('') > 0:
         lines.remove('')
     return '\n'.join(lines)
@@ -84,7 +85,7 @@ def out_n_to_n(chunk) -> str:
 if __name__ == '__main__':
     sentences = readfile.read_chunks('neko.txt.cabocha')
     out_line = ''
-    dis = [] # 助詞の位置
+    # 各文の係り受けパスを取得
     for i in range(len(sentences)):
         out_line += out_n_to_n(sentences[i]) + '\n'
 
