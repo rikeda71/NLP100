@@ -1,0 +1,4 @@
+1. nlp.txtをcorenlpのディレクトリまで移動
+2. java -cp "*" -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner,parse,dcoref -file nlp.txt
+↑(CoreNLPの公式サイトのQuickStart参照)
+3. できあがった「nlp.txt.xml]を使用したいディレクトリに移動
