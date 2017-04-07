@@ -22,27 +22,35 @@ class Coreference:
 # あるファイルのテキストの参照表現を代表参照表現に置き換える
 def replace_mention(sentences, coreferences):
     for i in range(len(sentences)):
-        rep_dict = make_replace_dict(sentences[i], i, coreferences)
+        rep_dict = make_replace_dict(i, coreferences)
         replace_line(sentences, rep_dict)
 
 # 辞書に沿って1行ごとの置換を行う
-def replace_line(line, rep_dict) -> str:
+def replace_line(sentences, rep_dict) -> str:
+    new_sentences = []
+    # 参照表現と代表参照表現の結び付け
     for k, v in rep_dict.items():
-        print(k, v)
+        #sentences
+        print('%s\t:\t%s'%(k,v))
+        pass
 
 # 置換を行うための辞書を作成する
-def make_replace_dict(line, num, coreferences) -> dict:
+def make_replace_dict(num, coreferences) -> dict:
     """
     rep_dict
-    { 100 * start + end : 代表参照表現 }
+    { 参照表現 : 代表参照表現 }
     """
     rep_dict = {}
-    for i in range(1,len(coreferences)):
+    for i in range(len(coreferences)):
         for j in range(len(coreferences[i].mentions)):
             mention = coreferences[i].mentions[j]
             if mention.sentence == num+1:
-                distance = 100 * mention.start + mention.end
-                rep_dict[distance] = mention.text
+                if mention.text in rep_dict: 
+                    continue
+                if mention.text == coreferences[i].mentions[0].text:
+                    #print(mention.text, coreferences[i].mentions[0].text)
+                    continue
+                rep_dict[mention.text] = coreferences[i].mentions[0].text
     return rep_dict
 
 
@@ -56,11 +64,17 @@ if __name__ == '__main__':
     root = tree.getroot()
     core_list = [] # すべての参照表現の関係を保持
     sentences = []
-    for parent in root.iterfind('./document/coreference/coreference'):
+    for parent in root.iterfind('./document/coreference/coreference'): # 間違っている？？ すべてのcoreferenceを一度に取ってきている
         coreference = Coreference()
         # 参照表現の組を格納
+        """
         for child in parent.iter('mention'):
             mention = Mention(child[0].text, child[1].text, child[2].text, child[3].text, child[4].text)
+            coreference.append(mention)
+        """
+        # 参照表現の組を格納
+        for i in range(len(parent)):
+            mention = Mention(parent[i][0].text, parent[i][1].text, parent[i][2].text, parent[i][3].text, parent[i][4].text)
             coreference.append(mention)
         # 参照表現の組を保持
         core_list.append(coreference)
@@ -70,5 +84,4 @@ if __name__ == '__main__':
             words.append(child[0].text)
         sentences.append(words)
     
-    print(core_list[0].mentions[1].text)
     replace_mention(sentences, core_list)
