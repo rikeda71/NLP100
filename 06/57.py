@@ -8,7 +8,10 @@ def get_collapsed(filename):
     tree = ET.parse(filename)
     root = tree.getroot()
     for sentence in root.iterfind('./document/sentences/sentence/'):
-        if sentence.tag != 'dependencies':
+        # 係り受け解析以外の結果なら
+        if not 'type' in sentence.attrib:
+            continue
+        elif sentence.attrib['type'] != 'collapsed-dependencies':
             continue
         i += 1
         edges = get_sentence(sentence)
@@ -25,7 +28,6 @@ def get_sentence(sentence) -> list:
 def draw_graph(array,i):
     g = pydot_ng.graph_from_edges(array)
     g.write_jpeg('graph/' + str(i) +'.jpg',prog='dot')
-
 
 if __name__ == '__main__':
     get_collapsed('nlp.txt.xml')
