@@ -1,0 +1,10 @@
+# 総数
+wc -l sentiment.txt
+10662
+
+# +1の数
+cut -c1,2 sentiment.txt | grep +1 | wc -l
+5331
+
+# -1の数
+10662 - 5331 = 5331
