@@ -1,9 +1,13 @@
-#coding:utf-8
+# -*- coding:utf-8 -*-
 import codecs
 import random
 
-# 指定したタグを文頭に着けてリストで返す
+
 def add_tag(filename, tag) -> list:
+    """
+    指定したタグを文頭に着けてリストで返す
+    """
+
     lines = []
     # タグ付けしたテキストを用意
     with codecs.open(filename, 'r', 'cp1252') as f:
@@ -11,6 +15,7 @@ def add_tag(filename, tag) -> list:
             lines.append(tag + line)
 
     return lines
+
 
 if __name__ == '__main__':
     # ポジネガのタグをつける
@@ -21,6 +26,5 @@ if __name__ == '__main__':
     concatenate.extend(neg)
     random.shuffle(concatenate)
     # 書き込み
-    with open('sentiment.txt','w') as f:
+    with open('sentiment.txt', 'w') as f:
         f.write(''.join(concatenate))
-
