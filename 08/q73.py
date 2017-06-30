@@ -49,3 +49,6 @@ if __name__ == "__main__":
 
     learn_circuit = Logistic_Regression(vectors, sign)
     learn_circuit.learn()
+    with open("learndata.txt", "w") as f:
+        data = map(str, learn_circuit.get_learn_data())
+        f.write("\n".join(data))
