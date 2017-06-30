@@ -3,17 +3,18 @@
 """ 文章の中にストップワードが含まれるか判別 """
 
 
+# stopwordの格納
+stopwords = []
+with open("stopword.txt", "r") as f:
+    for line in f.readlines():
+        stopwords.append(line.replace("\n", ""))
+
+
 def include_stopword(sentence: str) -> bool:
     """
     引数に与えた文章に
     ストップワードが含まれるかどうかを返す
     """
-
-    # stopwordの格納
-    stopwords = []
-    with open("stopword.txt", "r") as f:
-        for line in f.readlines():
-            stopwords.append(line.replace("\n", ""))
 
     # 単語がstopwordに含まれるものか判別
     words = sentence.split(" ")

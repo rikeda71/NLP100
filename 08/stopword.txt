@@ -115,6 +115,8 @@ has
 hasnt
 have
 he
+he'
+he's
 hence
 her
 here
@@ -216,6 +218,8 @@ seems
 serious
 several
 she
+she'
+she's
 should
 show
 side
