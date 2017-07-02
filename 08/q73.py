@@ -40,10 +40,8 @@ def get_sentence_learn_vector(sentence: str, features: list) -> list:
 
     # 文章の極性によってベクトルの位置を変更
     if sign == 1:
-        # return vector + [0] * value + [1.0]
         return vector + [0] * value
     else:
-        # return [0] * value + vector + [1.0]
         return [0] * value + vector
 
 
@@ -51,10 +49,12 @@ if __name__ == "__main__":
     features = []
     vectors = []
     sign = []
+    # 素性のリストを用意
     with open("features.txt", "r") as f:
         for word in f.readlines():
             features.append(word)
 
+    # 素性のリストを使って学習データを用意
     with open("sentiment.txt", "r") as f:
         for sentence in f.readlines():
             vectors.append(get_sentence_learn_vector(sentence, features))
@@ -63,12 +63,14 @@ if __name__ == "__main__":
             else:
                 sign.append(0.0)
 
+    # 学習
     learn_circuit = Logistic_Regression(vectors, sign)
     learn_circuit.learn()
     with open("learndata.txt", "w") as f:
         data = map(str, learn_circuit.get_learn_data())
         f.write("\n".join(data))
+
+    # 試しに推定
     with open("sentiment.txt", "r") as f:
-        vec = get_sentence_vector(f.readlines()[23], features)
-        print(learn_circuit.get_pos_prob(vec))
-        print(learn_circuit.get_neg_prob(vec))
+        vec = get_sentence_vector(f.readlines()[0], features)
+        print(learn_circuit.get_prob(vec))
