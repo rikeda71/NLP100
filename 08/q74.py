@@ -39,10 +39,7 @@ def Prediction(sentence: str="") -> str:
 
     vector = get_sentence_vector(sentence, features)
     predict = learn_circuit.get_prob(vector)
-    if predict >= 0.5:
-        return "+1"
-    else:
-        return "-1"
+    return predict
 
 
 # 素性の格納
@@ -63,4 +60,7 @@ learn_circuit.input_learn_data(learn_data)
 
 if __name__ == "__main__":
     sentence = input()
-    print(Prediction(sentence))
+    if Prediction(sentence) >= 0.5:
+        print("+1")
+    else:
+        print("-1")
