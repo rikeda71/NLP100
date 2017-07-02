@@ -7,7 +7,7 @@ class Logistic_Regression:
     ロジスティック回帰モデルのクラス
     """
 
-    def __init__(self, vector: list, sign: list):
+    def __init__(self, vector: list=[], sign: list=[]):
         self.vector = np.array(vector)
         self.sign = sign
 
@@ -46,4 +46,4 @@ class Logistic_Regression:
         return self.w.tolist()
 
     def input_learn_data(self, learndata: list):
-        self.w = learndata
+        self.w = np.array(learndata)
