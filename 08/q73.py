@@ -22,10 +22,12 @@ def get_sentence_vector(sentence: str, features: list) -> list:
 
     # ベクトル作成
     for i in range(len(features)):
-        if features[i][:-1] in stem_words:
-            vector.append(1.0)
-        else:
-            vector.append(0.0)
+        # BoWに素性を変更
+        vector.append(float(stem_words.count(features[i])))
+        # if features[i] in stem_words:
+        #     vector.append(1.0)
+        # else:
+        #     vector.append(0.0)
 
     return vector
 
@@ -52,7 +54,7 @@ if __name__ == "__main__":
     # 素性のリストを用意
     with open("features.txt", "r") as f:
         for word in f.readlines():
-            features.append(word)
+            features.append(word[:-1])
 
     # 素性のリストを使って学習データを用意
     with open("sentiment.txt", "r") as f:

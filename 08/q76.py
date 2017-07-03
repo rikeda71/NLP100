@@ -11,7 +11,7 @@ def main():
     features = []
     with open("features.txt", "r") as f:
         for feature in f.readlines():
-            features.append(feature)
+            features.append(feature[:-1])
 
     # 学習結果の格納
     learn_data = []

@@ -22,7 +22,7 @@ def get_sentence_vector(sentence: str, features: list) -> list:
 
     # ベクトル作成
     for i in range(len(features)):
-        if features[i][:-1] in stem_words:
+        if features[i] in stem_words:
             vector.append(1.0)
         else:
             vector.append(0.0)
@@ -46,7 +46,7 @@ def Prediction(sentence: str="") -> str:
 features = []
 with open("features.txt", "r") as f:
     for feature in f.readlines():
-        features.append(feature)
+        features.append(feature[:-1])
 
 # 学習結果の格納
 learn_data = []

@@ -6,7 +6,7 @@ def main():
     features = []
     with open("features.txt", "r") as f:
         for feature in f.readlines():
-            features.append(feature)
+            features.append(feature[:-1])
 
     # 学習データの格納
     learn_data = []
@@ -27,12 +27,12 @@ def main():
     dict_length = len(sort_dict)
     for i in range(dict_length - 1, dict_length - 11, -1):
         dic = sort_dict[i]
-        print(str(dic[0][:-1]) + "\t" + str(dic[1]))
+        print(str(dic[0]) + "\t" + str(dic[1]))
 
     # 重みの低い素性Top10
     for i in range(10):
         dic = sort_dict[i]
-        print(str(dic[0][:-1]) + "\t" + str(dic[1]))
+        print(str(dic[0]) + "\t" + str(dic[1]))
 
 
 if __name__ == "__main__":
