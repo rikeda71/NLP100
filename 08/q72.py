@@ -30,7 +30,7 @@ def get_features(sentences: list) -> list:
             else:
                 features_candidate.append(word)
 
-    # 出現回数が5回以下のものをすべて削除
+    # 出現回数が10回以下のものをすべて削除
     # それ以外を素性として返す
     counter = Counter(features_candidate)
     for word, cnt in counter.most_common():
@@ -39,7 +39,6 @@ def get_features(sentences: list) -> list:
         else:
             if len(word) > 1:
                 features.append(word)
-
     return features
 
 

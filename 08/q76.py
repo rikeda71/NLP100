@@ -8,16 +8,12 @@ from q74 import Prediction
 
 def main():
     # 素性の格納
-    features = []
     with open("features.txt", "r") as f:
-        for feature in f.readlines():
-            features.append(feature[:-1])
+        features = [feature[:-1] for feature in f.readlines()]
 
     # 学習結果の格納
-    learn_data = []
     with open("learndata.txt", "r") as f:
-        for val in f.readlines():
-            learn_data.append(float(val))
+        learn_data = [float(val) for val in f.readlines()]
 
     # 学習
     learn_circuit = Logistic_Regression()

@@ -16,9 +16,8 @@ def main():
 
     # 素性と学習結果の紐づけ
     feature_dict = {}
-    list_length = len(features)
-    for i in range(list_length):
-        feature_dict[features[i]] = learn_data[i] + learn_data[i + list_length]
+    for i in range(len(learn_data)):
+        feature_dict[features[i]] = learn_data[i]
 
     # ソート
     sort_dict = sorted(feature_dict.items(), key=lambda x: x[1])

@@ -11,23 +11,17 @@ def get_sentence_vector(sentence: str, features: list) -> list:
 
     vector = []
     stemmer = PorterStemmer()
-    stem_words = []
 
     # 単語分割
     words = re.split(r"[,.:;\s]", sentence[2:])
     while words.count("") > 0:
         words.remove("")
-    for word in words:
-        stem_words.append(stemmer.stem(word))
+    stem_words = [stemmer.stem(word) for word in words]
 
     # ベクトル作成
     for i in range(len(features)):
         # BoWに素性を変更
         vector.append(float(stem_words.count(features[i])))
-        # if features[i] in stem_words:
-        #     vector.append(1.0)
-        # else:
-        #     vector.append(0.0)
 
     return vector
 
@@ -41,20 +35,16 @@ def get_sentence_learn_vector(sentence: str, features: list) -> list:
     vector = get_sentence_vector(sentence, features)
 
     # 文章の極性によってベクトルの位置を変更
-    if sign == 1:
-        return vector + [0] * value
-    else:
-        return [0] * value + vector
+    return vector
 
 
 if __name__ == "__main__":
-    features = []
     vectors = []
     sign = []
+    print("setting...")
     # 素性のリストを用意
     with open("features.txt", "r") as f:
-        for word in f.readlines():
-            features.append(word[:-1])
+        features = [word[:-1] for word in f.readlines()]
 
     # 素性のリストを使って学習データを用意
     with open("sentiment.txt", "r") as f:
@@ -63,12 +53,13 @@ if __name__ == "__main__":
             if sentence[:2] == "+1":
                 sign.append(1.0)
             else:
-                sign.append(0.0)
+                sign.append(-1.0)
 
     # 学習
     learn_circuit = Logistic_Regression(vectors, sign)
-    learn_circuit.learn(val=500)
+    learn_circuit.learn()
     with open("learndata.txt", "w") as f:
+        print("input text...")
         data = map(str, learn_circuit.get_learn_data())
         f.write("\n".join(data))
 
