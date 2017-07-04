@@ -67,7 +67,7 @@ if __name__ == "__main__":
 
     # 学習
     learn_circuit = Logistic_Regression(vectors, sign)
-    learn_circuit.learn()
+    learn_circuit.learn(val=500)
     with open("learndata.txt", "w") as f:
         data = map(str, learn_circuit.get_learn_data())
         f.write("\n".join(data))
