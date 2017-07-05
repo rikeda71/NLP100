@@ -26,16 +26,16 @@ def get_sentence_vector(sentence: str, features: list) -> list:
     return vector
 
 
-def get_sentence_learn_vector(sentence: str, features: list) -> list:
+def get_sentence_learn_vector(sentence: str, features: list):
     """
     学習のための文章のベクトルを返す
     """
-    sign = int(sentence[:2])
+    sign = float(sentence[:2])
     value = len(features)
     vector = get_sentence_vector(sentence, features)
 
     # 文章の極性によってベクトルの位置を変更
-    return vector
+    return vector, sign
 
 
 if __name__ == "__main__":
@@ -49,11 +49,9 @@ if __name__ == "__main__":
     # 素性のリストを使って学習データを用意
     with open("sentiment.txt", "r") as f:
         for sentence in f.readlines():
-            vectors.append(get_sentence_learn_vector(sentence, features))
-            if sentence[:2] == "+1":
-                sign.append(1.0)
-            else:
-                sign.append(-1.0)
+            vec, sig = get_sentence_learn_vector(sentence, features)
+            vectors.append(vec)
+            sign.append(sig)
 
     # 学習
     learn_circuit = Logistic_Regression(vectors, sign)
