@@ -15,7 +15,7 @@ def main():
         true_token = re.sub(r"[.,!\?;:\(\)\[\]\'\"]", "", token)
         if true_token != "":
             new_sentences += true_token + " "
-    # メモリの解放
+    # メモリ解放
     del sentences
     del tokens
 

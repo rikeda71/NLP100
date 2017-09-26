@@ -24,7 +24,7 @@ def main():
     sentences = []
     with open("tokens.txt", "r") as f:
         sentences = [parse_country_names(sentence, countries) for sentence in f.readlines()]
-    # メモリ解法
+    # メモリ解放
     del countries
 
     with open("tokens_81.txt", "w") as f:
