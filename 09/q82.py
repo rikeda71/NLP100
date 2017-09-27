@@ -19,7 +19,7 @@ def main():
                 end = i + rand + 1 if i + rand + 1 < len(words) else len(words)
                 context.extend([words[i] + "\t" + words[j] for j in range(start, end) if i != j])
             # 書き込み
-            text = "\n".join(list(set(context)))
+            text = "\n".join(context)
             with open("contexts.txt", "a") as wf:
                 wf.write(text)
 
