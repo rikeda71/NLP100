@@ -25,11 +25,15 @@ def main():
 
     # 単語と文脈語のペアの総出現回数を格納する変数
     N = 0
-    with open("contexts_light.txt", "r") as f:
+    print("file reading...")
+    with open("contexts.txt", "r") as f:
         cooc_list = []
         word_list = []
         cont_list = []
-        for context in f.readlines():
+        # メモリ不足対策の実装
+        # for context in f.readlines(): とすると、一度にすべての行をメモリに格納してしまう
+        context = f.readline()
+        while context:
             N += 1
             # 単語と文脈語に分割
             split = context.split("\t")
@@ -40,7 +44,8 @@ def main():
             word_list.append(word)
             cont_list.append(cont[:-1])
             # 10000文ごとにカウントしていく
-            if N % 10000 == 0:
+            if N % 100000 == 0:
+                print(N)
                 # 共起，単語，文脈語の出現回数をカウント
                 count_element(cooc_dic, Counter(cooc_list).most_common())
                 count_element(word_dic, Counter(word_list).most_common())
@@ -49,24 +54,31 @@ def main():
                 cooc_list = []
                 word_list = []
                 cont_list = []
+            # 再格納
+            context = f.readline()
 
+        print("file writing")
         del cooc_list
         del word_list
         del cont_list
         gc.collect()
         # 出現回数で降順ソートして保存
+        print("cooc.txt")
         text = [k + " " + str(v) for k, v in sorted(cooc_dic.items(), key=lambda x: -x[1])]
         with open("q83/cooc.txt", "w") as f:
             f.write("\n".join(text))
 
+        print("word.txt")
         text = [k + " " + str(v) for k, v in sorted(word_dic.items(), key=lambda x: -x[1])]
         with open("q83/word.txt", "w") as f:
             f.write("\n".join(text))
 
+        print("cont.txt")
         text = [k + " " + str(v) for k, v in sorted(cont_dic.items(), key=lambda x: -x[1])]
         with open("q83/cont.txt", "w") as f:
             f.write("\n".join(text))
 
+        print("N.txt")
         with open("q83/N.txt", "w") as f:
             f.write(str(N))
 
