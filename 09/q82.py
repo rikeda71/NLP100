@@ -12,6 +12,7 @@ def main():
             context = []
             words = [word for word in sentence.replace("\n", " ").split(" ") if word != ""]
             if len(words) < 2:
+                sentence = rf.readline()
                 continue
             # 文脈の抽出
             for i in range(len(words)):
