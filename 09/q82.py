@@ -5,9 +5,10 @@ import gc
 
 
 def main():
-    sentences = []
+    text = ""
     with open("tokens_81.txt", "r") as rf:
-        for sentence in rf.readlines():
+        sentence = rf.readline()
+        while sentence:
             context = []
             words = [word for word in sentence.replace("\n", " ").split(" ") if word != ""]
             if len(words) < 2:
@@ -18,10 +19,11 @@ def main():
                 start = i - rand if i - rand >= 0 else 0
                 end = i + rand + 1 if i + rand + 1 < len(words) else len(words)
                 context.extend([words[i] + "\t" + words[j] for j in range(start, end) if i != j])
-            # 書き込み
-            text = "\n".join(context)
-            with open("contexts.txt", "a") as wf:
-                wf.write(text)
+            text += "\n".join(context) + "\n"
+            sentence = rf.readline()
+    # 書き込み
+    with open("contexts.txt", "w") as wf:
+        wf.write(text)
 
 
 if __name__ == "__main__":
