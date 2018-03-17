@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from math import log
 from scipy import io, sparse
+from collections import Counter
 
 
 def PPMI(N: float, f_t_c: float, f_t_a: float, f_a_c: float) -> float:
@@ -25,6 +26,21 @@ def get_word_count_dict(path: str) -> dict:
     return dic
 
 
+def make_light_list(l: list=[]) -> list:
+    """
+    listに格納された要素の数を減らして返す
+    """
+
+    new = []
+    count_dict = Counter(l)
+    # 出現回数が2回以上のものだけを格納し返して返す
+    for k, v in sorted(count_dict.items(), key=lambda x: x[1], reverse=True):
+        if v == 1:
+            break
+        new.append(k)
+    return sorted(new)
+
+
 def main():
     cooc_dic = {}
     # 値を保持する共起だけ抽出
@@ -45,14 +61,16 @@ def main():
     # t:単語, c:文脈語
     t = []
     c = []
-    for k in cooc_dic.keys():
+    for k, v in cooc_dic.items():
+        # 関係のない組み合わせは無視する
+        if v == 0:
+            continue
         split = k.split("\t")
         t.append(split[0])
         c.append(split[1])
     t = sorted(list(set(t)))
     c = sorted(list(set(c)))
 
-    """
     # 疎行列の用意
     a = sparse.lil_matrix((len(t), len(c)))
     # PPMIの計算
@@ -63,10 +81,9 @@ def main():
         if i < 0 or j < 0:
             continue
         a[i, j] = PPMI(N, v, word_dic[s[0]], cont_dic[s[1]])
-    """
 
     # 書き込み
-    # io.savemat("matrix_t_to_c", {"a": a})
+    io.savemat("matrix_t_to_c", {"a": a})
     with open("matrix_x.txt", "w") as f:
         f.write("\n".join(t))
     with open("matrix_y.txt", "w") as f:
