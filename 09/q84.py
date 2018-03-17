@@ -62,9 +62,6 @@ def main():
     t = []
     c = []
     for k, v in cooc_dic.items():
-        # 関係のない組み合わせは無視する
-        if v == 0:
-            continue
         split = k.split("\t")
         t.append(split[0])
         c.append(split[1])
