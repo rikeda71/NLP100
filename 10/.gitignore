@@ -1,1 +1,3 @@
 word2vec_model*
+*.txt
+!evaluation_data.txt
