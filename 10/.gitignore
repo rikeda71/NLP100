@@ -1,3 +1,5 @@
 word2vec_model*
 *.txt
 !evaluation_data.txt
+*.csv
+!wordsimilarity_353.csv
