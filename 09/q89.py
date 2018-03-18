@@ -35,7 +35,8 @@ def main():
     for i in range(len(vectors)):
         vec_dict[words[i]] = cos_sim_val(target_vec, vectors[i])
     sorted_vec = sorted(vec_dict.items(), key=lambda x: x[1], reverse=True)
-    for i in range(10):
+    # Greeceが出現するのが13番目のため
+    for i in range(13):
         print(sorted_vec[i][0], end="\t")
         print(sorted_vec[i][1])
 

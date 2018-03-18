@@ -24,8 +24,8 @@ def main():
         words = [word[:-1] for word in f.readlines()]
     vectors = io.loadmat("matrix_300.mat")["a"]
 
-    target_vec = vectors[index]
     index = words.index("England")
+    target_vec = vectors[index]
     vec_dict = {}
     # Englandとそれ以外の類似度を格納
     for i in range(len(vectors)):
