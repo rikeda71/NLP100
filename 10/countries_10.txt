@@ -1,0 +1,757 @@
+IS
+IE
+AZ
+AF
+US
+AS
+VI
+AE
+DZ
+AR
+AW
+AL
+AM
+AI
+AO
+AG
+AD
+YE
+GB
+IO
+VG
+IL
+IT
+IQ
+IR
+IN
+ID
+UG
+UA
+UZ
+UY
+EC
+EG
+EE
+ET
+ER
+SV
+AU
+AT
+AX
+OM
+NL
+GH
+GG
+GY
+KZ
+QA
+UM
+CA
+CV
+GA
+CM
+GM
+KH
+MP
+GN
+GW
+CY
+CU
+CW
+GR
+KI
+KG
+GT
+GP
+GU
+KW
+CK
+GL
+CX
+GD
+HR
+KY
+KE
+CI
+CC
+CR
+KM
+CO
+CG
+CD
+SA
+GS
+WS
+ST
+BL
+ZM
+PM
+SM
+MF
+SL
+DJ
+GI
+JE
+JM
+GE
+SY
+SG
+SX
+ZW
+CH
+SE
+SD
+SJ
+ES
+SR
+LK
+SK
+SI
+SZ
+SC
+GQ
+SN
+RS
+KN
+VC
+SH
+LC
+SO
+SB
+TC
+TH
+KR
+TW
+TJ
+TZ
+CZ
+TD
+CF
+CN
+TN
+KP
+CL
+TV
+DK
+DE
+TG
+TK
+DO
+DM
+TT
+TM
+TR
+TO
+NG
+NR
+NA
+AQ
+NU
+NI
+NE
+JP
+EH
+NC
+NZ
+NP
+NF
+NO
+HM
+BH
+HT
+PK
+VA
+PA
+VU
+BS
+PG
+BM
+PW
+PY
+BB
+PS
+HU
+BD
+TL
+PN
+FJ
+PH
+FI
+BT
+BV
+PR
+FO
+FK
+BR
+FR
+GF
+PF
+TF
+BG
+BF
+BN
+BI
+VN
+BJ
+VE
+BY
+BZ
+PE
+BE
+PL
+BA
+BW
+BQ
+BO
+PT
+HK
+HN
+MH
+MO
+MK
+MG
+YT
+MW
+ML
+MT
+MQ
+MY
+IM
+FM
+ZA
+SS
+MM
+MX
+MU
+MR
+MZ
+MC
+MV
+MD
+MA
+MN
+ME
+MS
+JO
+LA
+LV
+LT
+LY
+LI
+LR
+RO
+LU
+RW
+LS
+LB
+RE
+RU
+WF
+ISL
+IRL
+AZE
+AFG
+USA
+ASM
+VIR
+ARE
+DZA
+ARG
+ABW
+ALB
+ARM
+AIA
+AGO
+ATG
+AND
+YEM
+GBR
+IOT
+VGB
+ISR
+ITA
+IRQ
+IRN
+IND
+IDN
+UGA
+UKR
+UZB
+URY
+ECU
+EGY
+EST
+ETH
+ERI
+SLV
+AUS
+AUT
+ALA
+OMN
+NLD
+GHA
+GGY
+GUY
+KAZ
+QAT
+UMI
+CAN
+CPV
+GAB
+CMR
+GMB
+KHM
+MNP
+GIN
+GNB
+CYP
+CUB
+CUW
+GRC
+KIR
+KGZ
+GTM
+GLP
+GUM
+KWT
+COK
+GRL
+CXR
+GRD
+HRV
+CYM
+KEN
+CIV
+CCK
+CRI
+COM
+COL
+COG
+COD
+SAU
+SGS
+WSM
+STP
+BLM
+ZMB
+SPM
+SMR
+MAF
+SLE
+DJI
+GIB
+JEY
+JAM
+GEO
+SYR
+SGP
+SXM
+ZWE
+CHE
+SWE
+SDN
+SJM
+ESP
+SUR
+LKA
+SVK
+SVN
+SWZ
+SYC
+GNQ
+SEN
+SRB
+KNA
+VCT
+SHN
+LCA
+SOM
+SLB
+TCA
+THA
+KOR
+TWN
+TJK
+TZA
+CZE
+TCD
+CAF
+CHN
+TUN
+PRK
+CHL
+TUV
+DNK
+DEU
+TGO
+TKL
+DOM
+DMA
+TTO
+TKM
+TUR
+TON
+NGA
+NRU
+NAM
+ATA
+NIU
+NIC
+NER
+JPN
+ESH
+NCL
+NZL
+NPL
+NFK
+NOR
+HMD
+BHR
+HTI
+PAK
+VAT
+PAN
+VUT
+BHS
+PNG
+BMU
+PLW
+PRY
+BRB
+PSE
+HUN
+BGD
+TLS
+PCN
+FJI
+PHL
+FIN
+BTN
+BVT
+PRI
+FRO
+FLK
+BRA
+FRA
+GUF
+PYF
+ATF
+BGR
+BFA
+BRN
+BDI
+VNM
+BEN
+VEN
+BLR
+BLZ
+PER
+BEL
+POL
+BIH
+BWA
+BES
+BOL
+PRT
+HKG
+HND
+MHL
+MAC
+MKD
+MDG
+MYT
+MWI
+MLI
+MLT
+MTQ
+MYS
+IMN
+FSM
+ZAF
+SSD
+MMR
+MEX
+MUS
+MRT
+MOZ
+MCO
+MDV
+MDA
+MAR
+MNG
+MNE
+MSR
+JOR
+LAO
+LVA
+LTU
+LBY
+LIE
+LBR
+ROU
+LUX
+RWA
+LSO
+LBN
+REU
+RUS
+WLF
+Iceland
+Ireland
+Azerbaijan
+Afghanistan
+United States
+American Samoa
+Virgin Islands, U.S.
+United Arab Emirates
+Algeria
+Argentina
+Aruba
+Albania
+Armenia
+Anguilla
+Angola
+Antigua and Barbuda
+Andorra
+Yemen
+United Kingdom
+British Indian Ocean Territory
+Virgin Islands, British
+Israel
+Italy
+Iraq
+Iran, Islamic Republic of
+India
+Indonesia
+Uganda
+Ukraine
+Uzbekistan
+Uruguay
+Ecuador
+Egypt
+Estonia
+Ethiopia
+Eritrea
+El Salvador
+Australia
+Austria
+Åland Islands
+Oman
+Netherlands
+Ghana
+Guernsey
+Guyana
+Kazakhstan
+Qatar
+United States Minor Outlying Islands
+Canada
+Cape Verde
+Gabon
+Cameroon
+Gambia
+Cambodia
+Northern Mariana Islands
+Guinea
+Guinea-Bissau
+Cyprus
+Cuba
+Curaçao
+Greece
+Kiribati
+Kyrgyzstan
+Guatemala
+Guadeloupe
+Guam
+Kuwait
+Cook Islands
+Greenland
+Christmas Island
+Grenada
+Croatia
+Cayman Islands
+Kenya
+Côte d'Ivoire
+Cocos (Keeling) Islands
+Costa Rica
+Comoros
+Colombia
+Congo
+Congo, the Democratic Republic of the
+Saudi Arabia
+South Georgia and the South Sandwich Islands
+Samoa
+Sao Tome and Principe
+Saint Barthélemy
+Zambia
+Saint Pierre and Miquelon
+San Marino
+Saint Martin (French part)
+Sierra Leone
+Djibouti
+Gibraltar
+Jersey
+Jamaica
+Georgia
+Syrian Arab Republic
+Singapore
+Sint Maarten (Dutch part)
+Zimbabwe
+Switzerland
+Sweden
+Sudan
+Svalbard and Jan Mayen
+Spain
+Suriname
+Sri Lanka
+Slovakia
+Slovenia
+Swaziland
+Seychelles
+Equatorial Guinea
+Senegal
+Serbia
+Saint Kitts and Nevis
+Saint Vincent and the Grenadines
+Saint Helena, Ascension and Tristan da Cunha
+Saint Lucia
+Somalia
+Solomon Islands
+Turks and Caicos Islands
+Thailand
+Korea, Republic of
+Taiwan, Province of China
+Tajikistan
+Tanzania, United Republic of
+Czech Republic
+Chad
+Central African Republic
+China
+Tunisia
+Korea, Democratic People's Republic of
+Chile
+Tuvalu
+Denmark
+Germany
+Togo
+Tokelau
+Dominican Republic
+Dominica
+Trinidad and Tobago
+Turkmenistan
+Turkey
+Tonga
+Nigeria
+Nauru
+Namibia
+Antarctica
+Niue
+Nicaragua
+Niger
+Japan
+Western Sahara
+New Caledonia
+New Zealand
+Nepal
+Norfolk Island
+Norway
+Heard Island and McDonald Islands
+Bahrain
+Haiti
+Pakistan
+Holy See (Vatican City State)
+Panama
+Vanuatu
+Bahamas
+Papua New Guinea
+Bermuda
+Palau
+Paraguay
+Barbados
+Palestinian Territory, Occupied
+Hungary
+Bangladesh
+Timor-Leste
+Pitcairn
+Fiji
+Philippines
+Finland
+Bhutan
+Bouvet Island
+Puerto Rico
+Faroe Islands
+Falkland Islands (Malvinas)
+Brazil
+France
+French Guiana
+French Polynesia
+French Southern Territories
+Bulgaria
+Burkina Faso
+Brunei Darussalam
+Burundi
+Viet Nam
+Benin
+Venezuela
+Belarus
+Belize
+Peru
+Belgium
+Poland
+Bosnia and Herzegovina
+Botswana
+Bonaire, Saint Eustatius and Saba
+Bolivia, Plurinational State of
+Portugal
+Hong Kong
+Honduras
+Marshall Islands
+Macao
+Macedonia, the former Yugoslav Republic of
+Madagascar
+Mayotte
+Malawi
+Mali
+Malta
+Martinique
+Malaysia
+Isle of Man
+Micronesia, Federated States of
+South Africa
+South Sudan
+Myanmar
+Mexico
+Mauritius
+Mauritania
+Mozambique
+Monaco
+Maldives
+Moldova, Republic of
+Morocco
+Mongolia
+Montenegro
+Montserrat
+Jordan
+Lao People's Democratic Republic
+Latvia
+Lithuania
+Libyan Arab Jamahiriya
+Liechtenstein
+Liberia
+Romania
+Luxembourg
+Rwanda
+Lesotho
+Lebanon
+Réunion
+Russian Federation
+Wallis and Futuna
+Ascension Island
+Azores
+Netherlands Antilles
+Canary Islands
+Saipan
+Spanish North Africa
+Diego Garcia
+State of Hawaii
+Madeira
+https://www.benricho.org/translate/countrycode.html参考
