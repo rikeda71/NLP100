@@ -3,15 +3,19 @@ import numpy as np
 import random
 
 
-def cos_sim(v1, v2) -> float:
+def most_similer_index(repvec, vec, k: int) -> int:
     """
-    numpy行列動詞のcos類似度を返す
+    各クラスタの代表ベクトルと距離を比較し、
+    最も距離の近いクラスタ番号を返す
     """
 
-    try:
-        return np.dot(v1, v2) / (np.linalg.norm(v1) * np.linalg.norm(v2))
-    except:
-        return 0.0
+    argmaxsim = float("inf")
+    for i in range(k):
+        sim = np.linalg.norm(repvec[i] - vec)
+        if sim < argmaxsim:
+            argmax_i = i
+            argmaxsim = sim
+    return argmax_i
 
 
 def k_means(vectors: dict, k: int=2):
@@ -42,22 +46,10 @@ def k_means(vectors: dict, k: int=2):
         # 代表値（ベクトル）の取得
         for i in range(k):
             new_cluster[i] = []
-            repval = np.zeros(n)
-            for name in cluster[i]:
-                repval += vectors[name]
-            repval /= len(cluster)
-            reps[i] = repval
+            reps[i] = sum([vectors[name] for name in cluster[i]]) / len(cluster[i])
         # 各事例のクラスタへの割り当て
         for key, val in vectors.items():
-            argmax_i = 0
-            argmax_sim = cos_sim(reps[0], val)
-            # もっとお類似度の高いクラスタを探す
-            for i in range(1, k):
-                sim = cos_sim(reps[i], v)
-                if sim > argmax_sim:
-                    argmax_i = i
-                    argmax_sim = sim
-            new_cluster[argmax_i].append(key)
+            new_cluster[most_similer_index(reps, val, k)].append(key)
         # 収束するかどうか
         for i in range(len(cluster)):
             if len(cluster[i]) != len(new_cluster[i]):
@@ -72,10 +64,9 @@ def k_means(vectors: dict, k: int=2):
                     flag = True
                     break
     # 収束した
-        for key, val in cluster.items():
-            print(key, end="\t")
-            print(val)
-        break
+    for key, val in cluster.items():
+        print(key, end="\t")
+        print(val)
 
 
 def main():
