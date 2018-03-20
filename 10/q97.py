@@ -64,15 +64,16 @@ def k_means(vectors: dict, k: int=2):
                     flag = True
                     break
     # 収束した
-    for key, val in cluster.items():
-        print(key, end="\t")
-        print(val)
+    return cluster
 
 
 def main():
     cv = CountryVectors()
     k = 5
-    k_means(cv.vectors, k)
+    c = k_means(cv.vectors, k)
+    for k, v in c.items():
+        print(k, end="\t")
+        print(v)
 
 
 if __name__ == "__main__":
