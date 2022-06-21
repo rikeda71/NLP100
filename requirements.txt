@@ -14,7 +14,7 @@ jmespath==0.9.3
 matplotlib==2.0.2
 mecab-python3==0.7
 nltk==3.2.4
-numpy==1.13.0
+numpy==1.22.0
 pydot-ng==1.0.0
 pyparsing==2.2.0
 python-dateutil==2.6.0
